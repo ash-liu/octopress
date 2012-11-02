@@ -231,7 +231,6 @@ class DropboxCLI
         for i in 0...file_list.length do
         #file_list.each do |f|
             dest_name ='./source/_posts/' + file_time[i] + '-' + file_list[i].split('/')[2].to_url + '.markdown'
-
             get ["get", file_list[i], dest_name]
 
         end
