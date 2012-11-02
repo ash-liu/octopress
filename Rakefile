@@ -50,6 +50,11 @@ end
 desc "Generate jekyll site"
 task :generate do
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
+  
+  ## download the md file from dropbox
+  system "rm -rf #{source_dir}/#{posts_dir}/*"
+  system "ruby get_md.rb"
+
   puts "## Generating Site with Jekyll"
   system "compass compile --css-dir #{source_dir}/stylesheets"
   system "jekyll"

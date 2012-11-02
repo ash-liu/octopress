@@ -1,0 +1,9 @@
+--- !ruby/object:DropboxSession
+consumer_key: 4inw1ji3nkpj8wh
+consumer_secret: pnvvb8bntbdlph8
+request_token: !ruby/object:OAuthToken
+  key: 5fvzvwzkqkfnacn
+  secret: i5rnzlr54xlynqk
+access_token: !ruby/object:OAuthToken
+  key: hk9dqq7ibkrvpgg
+  secret: 4rua5c77z3pcyk6
