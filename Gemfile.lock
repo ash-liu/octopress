@@ -13,6 +13,8 @@ GEM
       fssm (>= 0.2.7)
       sass (~> 3.1)
     directory_watcher (1.4.1)
+    dropbox-sdk (1.5.1)
+      json
     fast-stemmer (1.0.1)
     ffi (1.0.11)
     fssm (0.2.9)
@@ -24,6 +26,7 @@ GEM
       kramdown (~> 0.13)
       liquid (~> 2.3)
       maruku (~> 0.5)
+    json (1.7.5)
     kramdown (0.13.7)
     liquid (2.3.0)
     maruku (0.6.0)
@@ -56,6 +59,7 @@ PLATFORMS
 DEPENDENCIES
   RedCloth (~> 4.2.9)
   compass (~> 0.12.1)
+  dropbox-sdk (~> 1.5.1)
   haml (~> 3.1.6)
   jekyll (~> 0.11.2)
   liquid (~> 2.3.0)

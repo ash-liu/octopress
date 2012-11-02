@@ -1,6 +1,8 @@
 require 'dropbox_sdk'
 require 'pp'
-
+require "rubygems"
+require "bundler/setup"
+require "stringex"
 
 ####
 # An example app using the Dropbox API Ruby Client
@@ -228,8 +230,8 @@ class DropboxCLI
 
         for i in 0...file_list.length do
         #file_list.each do |f|
-            dest_name ='./source/_posts/' + file_time[i] + '-' + file_list[i].split('/')[2]
-            print dest_name
+            dest_name ='./source/_posts/' + file_time[i] + '-' + file_list[i].split('/')[2].to_url + '.markdown'
+
             get ["get", file_list[i], dest_name]
 
         end
