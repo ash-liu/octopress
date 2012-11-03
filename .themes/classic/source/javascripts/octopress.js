@@ -118,7 +118,7 @@ function renderDeliciousLinks(items) {
 
 $.domReady(function() {
   testFeatures();
-  wrapFlashVideos();
+//  wrapFlashVideos();      //ash marked
 //  flashVideoFallback();  //ash marked 
   addCodeLineNumbers();
   getNav();
