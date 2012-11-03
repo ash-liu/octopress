@@ -119,7 +119,7 @@ function renderDeliciousLinks(items) {
 $.domReady(function() {
   testFeatures();
   wrapFlashVideos();
-  flashVideoFallback();
+//  flashVideoFallback();  //ash marked 
   addCodeLineNumbers();
   getNav();
   addSidebarToggler();
