@@ -4,6 +4,9 @@ require "rubygems"
 require "bundler/setup"
 require "stringex"
 
+require 'time'
+require 'date'
+
 ####
 # An example app using the Dropbox API Ruby Client
 #   This ruby script sets up a basic command line interface (CLI)
@@ -213,7 +216,9 @@ class DropboxCLI
         str
     end
 
+    #  从dropbox得到post文件
     def get_markdown
+        get_interval = 10.0 * 60     #时间间隔是5分钟,这里放宽点
         file_list = []
         file_time = []
         resp = @client.metadata('/markdown')
@@ -221,13 +226,22 @@ class DropboxCLI
         if resp['contents'].length > 0
             i = 0
             for item in resp['contents']
-                file_list[i] = item['path']
-                file_time[i] = (DateTime.parse(item['modified']).to_s)[0..9]
-                print file_time[i]
-                i = i + 1
+                time_modify = DateTime.parse(item['modified'])
+                if (Time.now - Time.parse(time_modify.to_s) < get_interval) 
+                    file_list[i] = item['path']
+                    file_time[i] = (DateTime.parse(item['modified']).to_s)[0..9]
+
+                    print file_time[i]
+                    i = i + 1
+                end
             end
         end
 
+        if file_list.length == 0 
+            print "length is 0\n"
+            return 
+        end
+        
         for i in 0...file_list.length do
         #file_list.each do |f|
             dest_name ='./source/_posts/' + file_time[i] + '-' + file_list[i].split('/')[2].to_url + '.markdown'
